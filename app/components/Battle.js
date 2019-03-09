@@ -24,10 +24,25 @@ class Battle extends React.Component {
   }
 
   render() {
+    var playerOneName = this.state.playerOneName;
+    var playerTwoName = this.state.playerTwoName;
+
     return (
       <div>
         <div className='row'>
-          
+          {!playerOneName &&
+            <PlayerInput 
+              id='playerOne'
+              label='Player One'
+              onSubmit={this.handleSubmit}
+            />}
+
+          {!playerTwoName &&
+            <PlayerInput 
+              id='playerTwo'
+              label='Player Two'
+              onSubmit={this.handleSubmit}
+            />}
         </div>
       </div>
     )
