@@ -1,4 +1,19 @@
 var React = require('react');
+var PropTypes = require('prop-types');
+
+class PlayerInput extends React.Component {
+  render() {
+    return (
+
+    )
+  }
+}
+
+PlayerInput.PropTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
 
 class Battle extends React.Component {
   constructor(props) {
