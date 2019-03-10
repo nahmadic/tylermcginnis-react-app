@@ -102,6 +102,7 @@ class Battle extends React.Component {
     }
 
     this.handleSubmit = this.handeSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handeSubmit(id, username) {
@@ -113,9 +114,20 @@ class Battle extends React.Component {
     });
   }
 
+  handleReset(id) {
+    this.setState(function () {
+      var newState = {};
+      newState[id + 'Name'] = '';
+      newState[id + 'Image'] = null;
+      return newState;
+    });
+  }
+
   render() {
     var playerOneName = this.state.playerOneName;
     var playerTwoName = this.state.playerTwoName;
+    var playerOneImage = this.state.playerOneImage;
+    var playerTwoImage = this.state.playerTwoImage;
 
     return (
       <div>
@@ -125,14 +137,35 @@ class Battle extends React.Component {
               id='playerOne'
               label='Player One'
               onSubmit={this.handleSubmit}
-            />}
+            />
+          }
+
+          {playerOneImage !== null &&
+            <PlayerPreview
+              avatar={playerOneImage}
+              username={playerOneName}
+              onReset={this.handleReset}
+              id='playerOne' 
+            />
+          }
 
           {!playerTwoName &&
             <PlayerInput 
               id='playerTwo'
               label='Player Two'
               onSubmit={this.handleSubmit}
-            />}
+            />
+          }
+
+          {playerTwoImage !== null &&
+            <PlayerPreview
+              avatar={playerTwoImage}
+              username={playerTwoName}
+              onReset={this.handleReset}
+              id='playerTwo' 
+            />
+          }
+
         </div>
       </div>
     )
