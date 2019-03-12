@@ -4,7 +4,7 @@ class Results extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>Results will go here</div>
+      <div>Results</div>
     )
   }
 }
