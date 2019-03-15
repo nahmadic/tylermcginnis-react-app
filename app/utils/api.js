@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-// This allows you to connect to the Github API consistently
+// This allows you to connect to the Github API consistently if you actually add a client ID and secret ID
 var id = "YOUR_CLIENT_ID";
 var sec = "YOUR_SECRET_ID";
 var params = "?client_id=" + id + "&client_secret=" + sec;
