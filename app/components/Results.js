@@ -4,12 +4,13 @@ var queryString = require('query-string');
 var api = require('../utils/api');
 var Link = require('react-router-dom').Link;
 var PlayerPreview = require('../components/PlayerPreview');
+var Loading = require('../components/Loading');
 
 function Profile (props) {
   var info = props.info;
-  
+
   return (
-    <PlayerPreview avataer={info.avatar_url} username={info.login}>
+    <PlayerPreview avatar={info.avatar_url} username={info.login}>
       <ul className='space-list-items'>
         {info.name && <li>{info.name}</li>}
         {info.location && <li>{info.location}</li>}
@@ -37,7 +38,7 @@ function Player (props) {
   )
 }
 
-Player.PropTypes = {
+Player.propTypes = {
   label: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
   profile: PropTypes.object.isRequired,
@@ -89,7 +90,7 @@ class Results extends React.Component {
     var loading = this.state.loading;
 
     if (loading === true) {
-      return <p>Loading...</p>
+      return <Loading />
     }
 
     if (error) {
